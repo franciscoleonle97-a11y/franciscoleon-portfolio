@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francisco Leon — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f6f6f4;
+      --text-primary: #1a1a18;
+      --text-secondary: #5f5e5a;
+      --text-tertiary: #888780;
+      --border: rgba(0,0,0,0.12);
+      --border-md: rgba(0,0,0,0.20);
+      --blue-bg: #e6f1fb;
+      --blue-text: #185fa5;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-secondary: #242422;
+        --text-primary: #f0efe8;
+        --text-secondary: #b4b2a9;
+        --text-tertiary: #888780;
+        --border: rgba(255,255,255,0.10);
+        --border-md: rgba(255,255,255,0.18);
+        --blue-bg: #0c447c;
+        --blue-text: #b5d4f4;
+      }
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .page {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    /* PHOTO — uncomment and replace src when you have a photo
+    .hero-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 0.5px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    */
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-link {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 0.5px solid var(--border-md);
+      border-radius: var(--radius-md);
+      padding: 5px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.15s;
+    }
+
+    .hero-link:hover { border-color: var(--text-tertiary); }
+
+    /* SECTIONS */
+    .section {
+      padding: 2.5rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* PROJECT CARDS */
+    .project-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.15s;
+    }
+
+    .project-card:last-child { margin-bottom: 0; }
+    .project-card:hover { border-color: var(--border-md); }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .project-link {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      font-size: 13px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .project-link:hover { color: var(--text-secondary); }
+
+    .stats-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 0.65rem;
+    }
+
+    .stat-pill {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--blue-bg);
+      color: var(--blue-text);
+      font-weight: 500;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+    }
+
+    .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border-md);
+      color: var(--text-tertiary);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .skill-group {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+    }
+
+    .skill-group-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .skill-items {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    /* EDUCATION */
+    .edu-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .edu-school {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .edu-date {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 2rem 0 0;
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer a:hover { color: var(--text-primary); }
+
+    svg.icon {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-tag">Portfolio</p>
+    <!-- To add your photo, uncomment the line below and replace the src:
+    <img class="hero-photo" src="your-photo.jpg" alt="Francisco Leon" />
+    -->
+    <h1>Francisco Leon</h1>
+    <p class="hero-sub">Business Analytics graduate student at Baruch College. Background in mechatronics engineering and restaurant operations. I turn messy data into decisions that actually matter.</p>
+    <nav class="hero-links">
+      <a class="hero-link" href="mailto:franciscoleonle97@gmail.com">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        franciscoleonle97@gmail.com
+      </a>
+      <a class="hero-link" href="https://linkedin.com" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="hero-link" href="tel:6469397645">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+        (646) 939-7645
+      </a>
+    </nav>
+  </header>
+
+  <!-- PROJECTS -->
+  <section class="section">
+    <p class="section-label">Projects</p>
+
+    <article class="project-card">
+      <div class="project-header">
+        <span class="project-title">EV Market Growth Analysis, Washington State</span>
+      </div>
+      <div class="stats-row">
+        <span class="stat-pill">280K+ records</span>
+        <span class="stat-pill">t = 2.64, p = 0.01</span>
+        <span class="stat-pill">R² improved 0.63 to 0.80</span>
+      </div>
+      <p class="project-desc">Analyzed BEV vs. PHEV registration trends using hypothesis testing, linear regression, and log transformation. Found BEVs growing 5.5x faster than PHEVs annually, and confirmed the growth is exponential, not linear.</p>
+      <div class="tags">
+        <span class="tag">Excel</span>
+        <span class="tag">Hypothesis Testing</span>
+        <span class="tag">Linear Regression</span>
+        <span class="tag">EDA</span>
+        <span class="tag">Data.gov</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-header">
+        <span class="project-title">Famswise Banking App Prototype</span>
+        <a class="project-link" href="https://www.figma.com/design/WB3i5jXAv018N1GxDtqCaK/FAMSWISE-Team-project?node-id=0%3A1&t=VjBPtkmQePDhwRBZ-1" target="_blank" rel="noopener">View in Figma ↗</a>
+      </div>
+      <p class="project-desc">Designed a mobile banking app for a 30-year-old institution expanding its digital presence. Led user research, wireframes, and interactive prototyping, focused on personalizing financial products for each customer segment.</p>
+      <div class="tags">
+        <span class="tag">Figma</span>
+        <span class="tag">User Research</span>
+        <span class="tag">Prototyping</span>
+        <span class="tag">UX Design</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-header">
+        <span class="project-title">CarXchange Inventory Optimization</span>
+      </div>
+      <p class="project-desc">Analyzed used car inventory data across U.S. regions using SQL to identify oversupply patterns. Built Tableau dashboards and recommended region-specific promotions to improve inventory turnover and profit margins.</p>
+      <div class="tags">
+        <span class="tag">SQL</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">Inventory Analysis</span>
+        <span class="tag">Strategy</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-header">
+        <span class="project-title">NYC 2019 Weather Data Analysis</span>
+      </div>
+      <p class="project-desc">Processed and visualized a year of NYC weather data using Python and Pandas. Built an interactive CLI for monthly and yearly trend exploration, applying descriptive statistics to surface seasonal precipitation and temperature patterns.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">NumPy</span>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-label">Analytics</p>
+        <p class="skill-items">SQL<br>Python<br>Tableau<br>Excel</p>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Product</p>
+        <p class="skill-items">Figma<br>Jira<br>Agile / Scrum<br>Google Analytics</p>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">Methods</p>
+        <p class="skill-items">Hypothesis Testing<br>Regression<br>EDA<br>KPI Analysis</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <p class="section-label">Education</p>
+    <div class="edu-item">
+      <p class="edu-degree">M.S. Business Analytics</p>
+      <p class="edu-school">Baruch College, New York</p>
+      <p class="edu-date">Expected May 2027, in progress</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-degree">Product Management Bootcamp</p>
+      <p class="edu-school">University of North Carolina at Chapel Hill, Cum Laude</p>
+      <p class="edu-date">2024</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-degree">B.S. Mechatronics Engineering</p>
+      <p class="edu-school">CETYS University, Mexicali, Cum Laude, ABET Accredited</p>
+      <p class="edu-date">2020</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="mailto:franciscoleonle97@gmail.com">
+      <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      franciscoleonle97@gmail.com
+    </a>
+    <a href="tel:6469397645">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+      (646) 939-7645
+    </a>
+  </footer>
+
+</main>
+</body>
+</html>
