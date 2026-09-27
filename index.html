@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Francisco Leon — Portfolio</title>
+  <title>Francisco Leon | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -143,7 +143,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
     .project-title {
@@ -151,13 +151,25 @@
       font-weight: 500;
     }
 
+    .project-context {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
     .project-link {
       color: var(--text-tertiary);
       text-decoration: none;
       font-size: 13px;
       white-space: nowrap;
-      flex-shrink: 0;
-      margin-top: 2px;
     }
 
     .project-link:hover { color: var(--text-secondary); }
@@ -202,11 +214,11 @@
     /* SKILLS */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 560px) {
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -295,13 +307,13 @@
     <img class="hero-photo" src="your-photo.jpg" alt="Francisco Leon" />
     -->
     <h1>Francisco Leon</h1>
-    <p class="hero-sub">Business Analytics graduate student at Baruch College. Background in mechatronics engineering and restaurant operations. I turn messy data into decisions that actually matter.</p>
+    <p class="hero-sub">I use data and customer insight to build better products and smarter business decisions.</p>
     <nav class="hero-links">
       <a class="hero-link" href="mailto:franciscoleonle97@gmail.com">
         <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
         franciscoleonle97@gmail.com
       </a>
-      <a class="hero-link" href="https://linkedin.com" target="_blank" rel="noopener">
+      <a class="hero-link" href="https://www.linkedin.com/in/francisco-leon-bb9782157/" target="_blank" rel="noopener">
         <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
@@ -316,9 +328,64 @@
   <section class="section">
     <p class="section-label">Projects</p>
 
+    <!-- 1. Famswise -->
+    <article class="project-card">
+      <div class="project-header">
+        <span class="project-title">Famswise Banking App Prototype</span>
+        <div class="project-links">
+          <a class="project-link" href="https://www.figma.com/design/WB3i5jXAv018N1GxDtqCaK/FAMSWISE-Team-project?node-id=0%3A1&t=VjBPtkmQePDhwRBZ-1" target="_blank" rel="noopener">View in Figma ↗</a>
+        </div>
+      </div>
+      <p class="project-context">Product Management Bootcamp, UNC, 2024</p>
+      <p class="project-desc">Designed a mobile banking app for a 30-year-old institution expanding its digital presence. Led user research, wireframes, and interactive prototyping in Figma, focused on personalizing financial products for distinct customer segments.</p>
+      <div class="tags">
+        <span class="tag">Figma</span>
+        <span class="tag">User Research</span>
+        <span class="tag">Prototyping</span>
+        <span class="tag">UX Design</span>
+      </div>
+    </article>
+
+    <!-- 2. CarXchange -->
+    <article class="project-card">
+      <div class="project-header">
+        <span class="project-title">CarXchange Inventory Optimization</span>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/franciscoleonle97-a11y/carxchange-inventory" target="_blank" rel="noopener">View code ↗</a>
+        </div>
+      </div>
+      <p class="project-context">Product Management Bootcamp, UNC, 2024</p>
+      <p class="project-desc">Analyzed used-car inventory across U.S. regions in SQL to identify oversupply patterns. Built Tableau dashboards and recommended region-specific promotions to improve inventory turnover and profit margins.</p>
+      <div class="tags">
+        <span class="tag">SQL</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">Inventory Analysis</span>
+        <span class="tag">Strategy</span>
+      </div>
+    </article>
+
+    <!-- 3. Stock Trading DB -->
+    <article class="project-card">
+      <div class="project-header">
+        <span class="project-title">Stock Trading Simulation Database</span>
+      </div>
+      <p class="project-context">Baruch College, Fall 2026, in progress</p>
+      <p class="project-desc">Leading a 4-person team designing a relational database for a virtual stock-trading platform for students and beginner investors, where each player starts with $100,000 in virtual cash. Defined business requirements, users, and scope to support account creation, buy/sell transactions, cash balances, holdings, price history, and portfolio valuation.</p>
+      <div class="tags">
+        <span class="tag">SQL</span>
+        <span class="tag">Database Design</span>
+        <span class="tag">Requirements</span>
+        <span class="tag">Team Leadership</span>
+      </div>
+    </article>
+
+    <!-- 4. EV Analysis -->
     <article class="project-card">
       <div class="project-header">
         <span class="project-title">EV Market Growth Analysis, Washington State</span>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/franciscoleonle97-a11y/EV_Analysis" target="_blank" rel="noopener">View code ↗</a>
+        </div>
       </div>
       <div class="stats-row">
         <span class="stat-pill">280K+ records</span>
@@ -335,36 +402,13 @@
       </div>
     </article>
 
-    <article class="project-card">
-      <div class="project-header">
-        <span class="project-title">Famswise Banking App Prototype</span>
-        <a class="project-link" href="https://www.figma.com/design/WB3i5jXAv018N1GxDtqCaK/FAMSWISE-Team-project?node-id=0%3A1&t=VjBPtkmQePDhwRBZ-1" target="_blank" rel="noopener">View in Figma ↗</a>
-      </div>
-      <p class="project-desc">Designed a mobile banking app for a 30-year-old institution expanding its digital presence. Led user research, wireframes, and interactive prototyping, focused on personalizing financial products for each customer segment.</p>
-      <div class="tags">
-        <span class="tag">Figma</span>
-        <span class="tag">User Research</span>
-        <span class="tag">Prototyping</span>
-        <span class="tag">UX Design</span>
-      </div>
-    </article>
-
-    <article class="project-card">
-      <div class="project-header">
-        <span class="project-title">CarXchange Inventory Optimization</span>
-      </div>
-      <p class="project-desc">Analyzed used car inventory data across U.S. regions using SQL to identify oversupply patterns. Built Tableau dashboards and recommended region-specific promotions to improve inventory turnover and profit margins.</p>
-      <div class="tags">
-        <span class="tag">SQL</span>
-        <span class="tag">Tableau</span>
-        <span class="tag">Inventory Analysis</span>
-        <span class="tag">Strategy</span>
-      </div>
-    </article>
-
+    <!-- 5. NYC Weather -->
     <article class="project-card">
       <div class="project-header">
         <span class="project-title">NYC 2019 Weather Data Analysis</span>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/franciscoleonle97-a11y/nyc-weather-analysis" target="_blank" rel="noopener">View code ↗</a>
+        </div>
       </div>
       <p class="project-desc">Processed and visualized a year of NYC weather data using Python and Pandas. Built an interactive CLI for monthly and yearly trend exploration, applying descriptive statistics to surface seasonal precipitation and temperature patterns.</p>
       <div class="tags">
@@ -383,15 +427,19 @@
     <div class="skills-grid">
       <div class="skill-group">
         <p class="skill-group-label">Analytics</p>
-        <p class="skill-items">SQL<br>Python<br>Tableau<br>Excel</p>
+        <p class="skill-items">SQL<br>Python<br>R<br>Tableau<br>Excel</p>
       </div>
       <div class="skill-group">
         <p class="skill-group-label">Product</p>
-        <p class="skill-items">Figma<br>Jira<br>Agile / Scrum<br>Google Analytics</p>
+        <p class="skill-items">Figma<br>Jira<br>Agile / Scrum<br>User Stories<br>Roadmapping</p>
       </div>
       <div class="skill-group">
         <p class="skill-group-label">Methods</p>
         <p class="skill-items">Hypothesis Testing<br>Regression<br>EDA<br>KPI Analysis</p>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-label">AI Tools</p>
+        <p class="skill-items">Microsoft Copilot<br>ChatGPT<br>Claude</p>
       </div>
     </div>
   </section>
@@ -402,11 +450,11 @@
     <div class="edu-item">
       <p class="edu-degree">M.S. Business Analytics</p>
       <p class="edu-school">Baruch College, New York</p>
-      <p class="edu-date">Expected May 2027, in progress</p>
+      <p class="edu-date">Expected December 2027, in progress</p>
     </div>
     <div class="edu-item">
       <p class="edu-degree">Product Management Bootcamp</p>
-      <p class="edu-school">University of North Carolina at Chapel Hill, Cum Laude</p>
+      <p class="edu-school">University of North Carolina at Chapel Hill</p>
       <p class="edu-date">2024</p>
     </div>
     <div class="edu-item">
@@ -421,6 +469,10 @@
     <a href="mailto:franciscoleonle97@gmail.com">
       <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
       franciscoleonle97@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/francisco-leon-bb9782157/" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
     </a>
     <a href="tel:6469397645">
       <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
